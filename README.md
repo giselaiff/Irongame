@@ -51,7 +51,7 @@ Game.generateTa();
 Game.generateBeers();
 Game.gameOver();
 Game.init();
-````
+
 class Game {
     constructor(ctx, ta, player, width, height, beers){
       this.ctx = ctx;
@@ -87,7 +87,7 @@ class Beers{
         this.size = size;
 }
 }
-
+````
 __Player.js__
 ````
 function Player(){
@@ -96,7 +96,7 @@ function Player(){
   this.color;
 };
 Player.move();
-````
+
 
 function Player(){
   this.width;
@@ -104,7 +104,7 @@ function Player(){
 
 };
 Player.fly();
-
+````
 __Obstacle.js__
 ````
 function Ta(){
@@ -112,13 +112,13 @@ function Ta(){
   this.height;
 };
 moveForward();
-````
+
 function Ta(){
   this.width;
   this.height;
 };
 moveForward();
-
+````
 ## Links
 [Irongame](https://trello.com/b/4aoqjWMk/irongame)
 [Github](https://giselaiff.github.io/Irongame/)
