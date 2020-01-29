@@ -20,4 +20,3 @@ class Player {
     } 
 }
 
-// if (this.y < 350)

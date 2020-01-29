@@ -1,10 +1,10 @@
 # Irongame
 
-In this game, you are an ironhacker who must collect a number of beers and face TA's.
+In this game, you are an ironhacker who must collect a number of beers and avoid TA's.
 
-The game screen is a road with floating beers and obstacles.
+The game screen is a road with beers and enemies.
 
-The player is represented by a person that flies along the road and avoid obstacles. The player uses the Space key to move up and down.
+The player is represented by a person that runs along the road avoiding "obstacles" and earning "coins". The player uses the Space key to jump.
 
 The game is over when a collition is detected between the player and an obstacle or if the player doesn't collect enough beers.
 
@@ -47,77 +47,56 @@ __Game.js__
 function Game(options){};
 Game.drawBoard();
 Game.drawPlayer();
-Game.generateTa();
-Game.generateBeers();
+Game.generateObstacles();
+Game.generateCoins();
 Game.gameOver();
 Game.init();
 
 class Game {
-    constructor(ctx, ta, player, width, height, beers){
-      this.ctx = ctx;
-      this.ta = ta;
-      this.player = player;
-      this.width = width;
-      this.height = height;
-      this.beers = beers;
+ constructor(ctx, player, obstacle, coin) {
+    this.ctx = ctx;
+    this.player = player;
+    this.obstacle = obstacle;
+    this.coin = coin;
+    this.interval = undefined;
     }
 }
 
-class Player {
-    constructor({position = x,y}, direction, gravity){
-        this.position = position;
-        this ctx = ctx;
-        this.size = width, height;
-    }
-}
-
-class Ta{
-    constructor({position = x,y}, width, height,size){
-        this position = position;
-        this.width = width;
-        this.height = height;
-        this.size = size;
-    }
-  
-class Beers{
-  constructor({position = x,y}, width, height,size){
-        this position = position;
-        this.width = width;
-        this.height = height;
-        this.size = size;
-}
-}
 ````
 __Player.js__
 ````
-function Player(){
-  this.width;
-  this.height;
-  this.color;
-};
-Player.move();
-
-
-function Player(){
-  this.width;
-  this.height;
-
-};
-Player.fly();
+class Player {
+     this.x = 250;
+        this.y = 350;
+        this.width = 70;
+        this.height = 148;
+        this.color = "pink";
+    }
+}
 ````
 __Obstacle.js__
 ````
-function Ta(){
-  this.width;
-  this.height;
-};
-moveForward();
-
-function Ta(){
-  this.width;
-  this.height;
-};
-moveForward();
+class Obstacle{
+     constructor() {
+      this.x = 1400;
+      this.y = 430;
+      this.width = 40;
+      this.height = 68;
+      this.color = "blue";
+  }
+  }
+````
+__Coin.js__
+````
+class Coin{
+   constructor() {
+        this.x = 1600;
+        this.y = 430;
+        this.width = 30;
+        this.height = 68;
+        this.color = "yellow";
+    }
+}
 ````
 ## Links
 [Irongame](https://trello.com/b/4aoqjWMk/irongame)
