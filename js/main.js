@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded', (event)=> {
 
   game = new Game(ctx, new Player(), new Obstacle(), new Coin()); 
 
-  game.start();
+game.start();
 })
+

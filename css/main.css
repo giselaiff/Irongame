@@ -1,10 +1,15 @@
-.container {
-    margin: 0 auto;
-    width: 1400px;
+/*background image*/
+
+.titleGame{
+    text-align: center;
+    widows: 100%;
 }
 
-canvas.irongame {
-    margin: 0 auto;
-    border: 1px solid black;
-    background-color: white;
+.sizeTitleGame {
+    height: 700px;
+}
+
+
+.hidden{
+    visibility: hidden;
 }

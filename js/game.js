@@ -61,6 +61,15 @@ class Game {
     this.ctx.fillStyle = this.coin.color;
     this.ctx.fillRect(this.coin.x, this.coin.y, this.coin.width, this.coin.height);
   }
+
+  //generateObstacle() 
+      
+    
+  //generateCoin() 
+
+
+  //collision() {
+    
   
   start() {
     this.drawPlayer();
@@ -68,6 +77,9 @@ class Game {
     this.assignControlsToKeys();
     this.drawObstacle();
     this.drawCoin();
+    //this.generateObstacle();
+    //this.generateCoin();
+
     this.interval = window.requestAnimationFrame(this.update.bind(this));
   }
 
