@@ -1,6 +1,6 @@
 # Irongame
 
-In this game, you are an ironhacker who must collect a number of beers and face TA's.
+In this game, you are an ironhacker who must collect a number of beers and avoid TA's.
 
 The game screen is a road with beers as coins and TA's as enemies.
 
