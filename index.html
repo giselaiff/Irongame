@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<html>
+<head>   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <title>Irongame</title>
 </head>
-<body>
-    <script type="text/javascript" src="player.js"> </script>
-    <script type="text/javascript" src="main.js"> </script>
-    <script type="text/javascript" src="obstacle.js"> </script>
-    <script type="text/javascript" src="game.js"> </script>
 
+
+<body>
+  <canvas id="myCanvas"></canvas>
+  <div class="container">
+    <div>
+      <div class="text"><h1 > IRONGAME </h1>
+      </div>
+      <div class="text2"><h3> 🍺 Run and Drink! 🍺  </h3>
+      </div>
+      <button id="start-button">START</button>
+    </div>
+
+    <script type="text/javascript" src="js/background.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/scoreboard.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  
 </body>
 </html>
