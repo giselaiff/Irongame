@@ -1,3 +1,14 @@
+// class Game {
+// 	constructor(canvasId) {
+// 		this.canvas = canvasId
+
+// 	}
+	
+// 	init(canvasId) {
+// 		this.canvas = 
+// 	}
+// }
+
 var Game = {
 	canvas: undefined,
 	ctx: undefined,
@@ -25,7 +36,7 @@ var Game = {
 	  this.start();
 	},
   
-	//inicializa
+	//inicializa bucle
 	start() {
 	  this.fps = 60;
 	  this.reset();
@@ -57,7 +68,7 @@ var Game = {
 
 		this.clearObstacles(); //limpiar obs
   
-		if (this.collision()) { // si choca - gameover
+		if (this.collision()) { // si choca - GAMEOVER
 			this.gameOver();
 		  }
 	  }, 1000 / this.fps);
@@ -68,7 +79,7 @@ var Game = {
 		clearInterval(this.interval);
 	  },
 	
-	  gameOver() { // lo llama de collision y para + muestra puntuación + reinicia
+	gameOver() { // lo llama de collision y para + muestra puntuación + reinicia
 		this.stop();
 		
 		if (confirm(`You got ${this.score - 1} points, not bad at all! `))
@@ -77,7 +88,8 @@ var Game = {
 		this.start(); //PONER PANTALLA GAMEOVER! se reinicia
 		
 	  },
-	
+
+
 //se llama en start 
 	reset() {
 	  this.background = new Background(this.canvas.width, this.canvas.height, this.ctx);
@@ -111,22 +123,22 @@ var Game = {
 	
 	  if (this.score > 500) {
 	  	this.obstacles.push(
-		  new Obstacle(this.canvas.width, this.player.y0 /*posicion inical player*/ , this.player.h, this.ctx)
+		  new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 4, 'img/TaManu.png')
 	  ) //genera obstacle
 		  }
 	  if (this.score > 2500) {
 		this.obstacles.push(
-		  new Obstacle2(this.canvas.width, this.player.y0, this.player.h, this.ctx)
+		  new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 6, 'img/TaJorge.png')
 		)
 	  }
 		if (this.score > 5000) {
 			this.obstacles.push(
-			  new Obstacle3(this.canvas.width, this.player.y0, this.player.h, this.ctx)
+			  new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 7, 'img/TaAlex.png')
 			)
 		  }
 		  if (this.score > 7500) {
 			this.obstacles.push(
-			  new Obstacle4(this.canvas.width, this.player.y0, this.player.h, this.ctx)
+			  new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 8, 'img/TaThor.png')
 			)
 		  }
 	  },

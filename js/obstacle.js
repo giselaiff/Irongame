@@ -1,13 +1,13 @@
 class Obstacle {
-  constructor(w, playerY, playerH, ctx) {
+  constructor(w, playerY, playerH, ctx, speed, img) {
     this.ctx = ctx;
     this.w = 40; //ancho personaje
     this.h = 75;//altura personaje
-    this.dx = 4; //velocidad
+    this.dx = speed; //velocidad
     this.x = w;
     this.y = playerY + playerH - this.h ;//no solapar altura canvas
     this.img = new Image();
-    this.img.src = "img/TaManu.png";
+    this.img.src = img;
     this.img.frames = 3;
 	this.img.frameIndex = 0;
 }
