@@ -61,10 +61,13 @@
     font-size: 60px;
     margin-top: 15px;
   }
-  .gameover {
+  .gameOver {
     color: pink;
     font-size: 60px;
     margin-top: 15px;
+    display: none
+    
+    /*aquí debería salir display hidden*/
   }
   
   #myCanvas {
