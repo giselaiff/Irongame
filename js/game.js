@@ -9,7 +9,7 @@ class Game {
 	  SPACE: 32,
 	  PAUSE: 80
 	}
- 	}
+}
 	
  	init (canvasId) {
 		this.canvas = document.getElementById(canvasId);
@@ -20,64 +20,85 @@ class Game {
 		this.h2 = this.h / 2;
 		this.canvas.setAttribute("width", `${this.w}px`);
 		this.canvas.setAttribute("height", `${this.h}px`);
-	
 		ScoreBoard.init(this.ctx);
-	
 		this.start();
-	  }
+	}
+
+	update() {
+		this.clear();
+		this.drawAll();
+		this.score += 1;
+	
+		this.framesCounter++;
+	
+		if (this.framesCounter > 300) {
+			this.framesCounter = 0;
+		}
+	
+		if (this.framesCounter % 200 === 0) {
+			this.generateObstacle(); //llama obstacles con separación
+		}
+	
+			if (this.score > 10000) {
+			this.moveAll(this.score);
+		}
+		
+		this.moveAll();
+
+		this.clearObstacles(); //limpiar obs
+	
+		if (this.collision()) { // si choca - GAMEOVER
+			this.gameOver();
+		}
+	}
 
 	  //inicializa bucle
 	  start () {
 		this.fps = 60;
 		this.reset();
-	
-		this.interval = setInterval(() => {
-		  this.clear();
-		  this.drawAll();
-		  this.score += 1;
-	
-		  this.framesCounter++;
-	
-		  if (this.framesCounter > 300) {
-			this.framesCounter = 0;
-		  }
-	
-		  if (this.framesCounter % 200 === 0) {
-			this.generateObstacle(); //llama obstacles con separación
-		  }
-	
-		   if (this.score > 10000) {
-			this.moveAll(this.score);
-		  }
-	  
-	
-		  this.score += 1;
-	
-		  this.moveAll();
-		  this.drawAll();
-  
-		  this.clearObstacles(); //limpiar obs
-	
-		  if (this.collision()) { // si choca - GAMEOVER
-			  this.gameOver();
-			}
-		}, 1000 / this.fps);
+		this.pauseRestart();
+		this.interval = setInterval(this.update.bind(this), 1000 / this.fps);
 	  }
   
   
-	  stop() {//parar 
-		  clearInterval(this.interval);
-		}
+	stop() {//parar 
+		clearInterval(this.interval);
+	}
+
+	pauseRestart() {
+		document.addEventListener("keydown", event => {
+			switch (event.keyCode){
+				case 80:
+					if (this.pause) {
+						this.pause = !this.pause;
+						this.interval = setInterval(this.update.bind(this), 1000 / this.fps);
+						document.getElementById('pause').style.display = "none";
+					} else {
+						this.stop()
+						this.pause = !this.pause;
+						document.getElementById('pause').style.display = "block";
+					}
+				break;
+			}
+		})
+
+	}
 
 	  gameOver () { // lo llama de collision y para + muestra puntuación + reinicia
 		  this.stop();
-		  
-		  if (confirm(`You got ${this.score - 1} points, not bad at all! `))
-  
-		  
-		  this.start(); //PONER PANTALLA GAMEOVER! se reinicia
+
+		 const div = document.getElementById('score');
+			div.innerHTML = `You got ${this.score - 1} points`;
+		
+			document.getElementById('over-screen').style.display = "block";
+			document.getElementById('myCanvas').style.display = "none";
+
+		
+
+		  this.start(); // se reinicia
 		  
 		}
+
   
   
   //se llama en start 
@@ -145,7 +166,7 @@ class Game {
 		this.obstacles.forEach(function(obstacle) {
 		  obstacle.draw();
 		});
-		this.drawTimer();
+		this.drawScore();
 	  }
 	//mueve todo
 	  moveAll () {
@@ -156,7 +177,7 @@ class Game {
 		});
 	  }
   //printa marcador 
-	  drawTimer () {
+	  drawScore () {
 		this.scoreBoard.update(this.score); //necesita para movimiento player
 	  }
 	}

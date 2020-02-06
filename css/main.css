@@ -75,3 +75,12 @@
     left: 0;
     top: 0;
   }
+
+  .pause {
+    background-color: pink;
+    width: 600px;
+    color: white;
+    height: 200px;
+    font-size: 30px;
+    margin-top: 15px;
+  }

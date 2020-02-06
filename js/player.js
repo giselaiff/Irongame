@@ -46,8 +46,6 @@ class Player {
 	} 
 	
 	
-  
-	
 	animateImg(framesCounter) {//cambia frame, mas mayor modulo - mas lento
 	  if (framesCounter % 5 === 0) {
 		this.img.frameIndex += 1;

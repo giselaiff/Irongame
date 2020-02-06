@@ -7,7 +7,7 @@ class Background {
     this.w = w
     this.x = 0;
     this.y = 0;
-    this.dx = 5; //printa fondo
+    this.dx = 5; //vel fondo
   }
 	// dx coord x del canvas destino que se coloca en esq.sup.izq de a img origen
 
