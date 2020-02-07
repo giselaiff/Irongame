@@ -22,14 +22,16 @@ class Game {
 		this.canvas.setAttribute("height", `${this.h}px`);
 		ScoreBoard.init(this.ctx);
 		this.start();
+
 	}
 
 	update() {
 		this.clear();
 		this.drawAll();
 		this.score += 1;
-	
 		this.framesCounter++;
+		this.moveAll();
+		this.clearObstacles(); //limpiar obs
 	
 		if (this.framesCounter > 300) {
 			this.framesCounter = 0;
@@ -39,25 +41,23 @@ class Game {
 			this.generateObstacle(); //llama obstacles con separación
 		}
 	
-			if (this.score > 10000) {
+		if (this.score > 10000) {
 			this.moveAll(this.score);
 		}
 		
-		this.moveAll();
-
-		this.clearObstacles(); //limpiar obs
-	
 		if (this.collision()) { // si choca - GAMEOVER
 			this.gameOver();
 		}
+		
 	}
 
 	  //inicializa bucle
-	  start () {
+	start () {
 		this.fps = 60;
 		this.reset();
 		this.pauseRestart();
 		this.interval = setInterval(this.update.bind(this), 1000 / this.fps);
+		
 	  }
   
   
@@ -72,11 +72,16 @@ class Game {
 					if (this.pause) {
 						this.pause = !this.pause;
 						this.interval = setInterval(this.update.bind(this), 1000 / this.fps);
-						document.getElementById('pause').style.display = "none";
+						document.getElementById('pause').style.display = "none"; 
+						const music = document.getElementById("audio");
+						music.play();
+						
 					} else {
 						this.stop()
 						this.pause = !this.pause;
 						document.getElementById('pause').style.display = "block";
+						const music = document.getElementById("audio");
+						music.pause();
 					}
 				break;
 			}
@@ -84,10 +89,12 @@ class Game {
 
 	}
 
-	  gameOver () { // lo llama de collision y para + muestra puntuación + reinicia
-		  this.stop();
+	gameOver () { // lo llama de collision y para + muestra puntuación + reinicia
+		this.stop();
+		const music = document.getElementById("audio");
+						music.pause();
 
-		 const div = document.getElementById('score');
+		const div = document.getElementById('score');
 			div.innerHTML = `You got ${this.score - 1} points`;
 		
 			document.getElementById('over-screen').style.display = "block";
@@ -95,14 +102,14 @@ class Game {
 
 		
 
-		  this.start(); // se reinicia
+		this.start(); // se reinicia
 		  
 		}
 
   
   
   //se llama en start 
-	  reset () {
+	reset () {
 		this.background = new Background(this.canvas.width, this.canvas.height, this.ctx);
 		this.player = new Player(this.canvas.width, this.canvas.height, this.ctx, this.keys);
 		this.scoreBoard = ScoreBoard;
@@ -111,7 +118,7 @@ class Game {
 		this.score = 0;
 	  }
   
-	  collision () { //comprueba que el player no este en misma con cualquier obst - cond en start
+	collision () { //comprueba que el player no este en misma con cualquier obst - cond en start
 	 
 		  return this.obstacles.some(obstacle => {
 			return (
@@ -123,44 +130,43 @@ class Game {
 		  });
 		}
 		 
-		clearObstacles () {//reinicia obs
+	clearObstacles () {//reinicia obs
 		  this.obstacles = this.obstacles.filter(function(obstacle) {
 			return obstacle.x >= 0;
 		  });
 		}
 	
   //genera obstaculos cada x puntuación
-	  generateObstacle  () {
+	generateObstacle  () {
 	  
-		if (this.score > 500) {
+		if (this.score > 200) {
 			this.obstacles.push(
 			new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 4, 'img/TaManu.png')
 		) //genera obstacle
 			}
-		if (this.score > 2500) {
+		if (this.score > 1000) {
 		  this.obstacles.push(
 			new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 6, 'img/TaJorge.png')
 		  )
 		}
-		  if (this.score > 5000) {
+		if (this.score > 2000) {
 			  this.obstacles.push(
 				new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 7, 'img/TaAlex.png')
 			  )
 			}
-			if (this.score > 7500) {
+		if (this.score > 3000) {
 			  this.obstacles.push(
 				new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx, 8, 'img/TaThor.png')
 			  )
 			}
 		}
 	
-	  clear () {
+	clear () {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	  }
 	
 	  //dibuja todo
-	  drawAll () {
-		
+	drawAll () {
 		this.background.draw();
 		this.player.draw(this.framesCounter);
 		this.obstacles.forEach(function(obstacle) {
@@ -169,7 +175,7 @@ class Game {
 		this.drawScore();
 	  }
 	//mueve todo
-	  moveAll () {
+	moveAll () {
 		this.background.move();
 		this.player.move();
 		this.obstacles.forEach(function(obstacle) {
@@ -177,7 +183,7 @@ class Game {
 		});
 	  }
   //printa marcador 
-	  drawScore () {
+	drawScore () {
 		this.scoreBoard.update(this.score); //necesita para movimiento player
 	  }
 	}

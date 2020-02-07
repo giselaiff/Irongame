@@ -5,31 +5,33 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <title>Irongame</title>
 </head>
-
+<audio class="hidden" controls id="audio">
+<source src ="music/Avicii 'Levels' Skrillex Remix [FULL].mp3" type="audio/ogg">
+</audio>
 
 <body>    
   
    <div class="container">
 
     <div id = "start-screen" style="display: block">
-      <h1 class = "text"> IRONGAME </h1>
-      <h3 class = "text2"> 🍺 Run and Drink! 🍺  </h3>
+      <label class = "irongame"> IRONGAME </label>
+      <label class = "runandrink"> 🍺 Run and Drink! 🍺  </label>
       <button id="start-button">START</button>
     </div>
 
     <canvas id="myCanvas" style="display: none"> </canvas>
 
     <div id = "over-screen" style="display: none">
-      <h3> Game Over </h3>
-      <span id="score"></span>
+      <label class = "gameover"> Game Over </label>
+      <span id= "score"></span>
       <button id="over-button">TRY AGAIN</button>
     </div>
 
-    <div id="pause" style="display: none; z-index: 1" class="pause">
-      <h1> Pause  </h1> 
-      <h2> Instrucciones:</h2>
-      <h3> Press Space bar to jump
-        Press "P" to pause and restart </h3>  
+    <div id="pause" style="display: none" class="pause">
+      <label class = "p"> Pause  </label> 
+      <label class = "instructions"> Instructions:</label> 
+      <label class = "pressS"> Press Space bar to jump </label>  
+      <label class = "pressP"> Press "P" to pause and restart </label>  
     </div>
   
   </div>

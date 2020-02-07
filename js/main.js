@@ -20,10 +20,13 @@ window.onload = function () {
   function createPause() {
     myCanvas.style = "display: none";
     pauseScreen.style = "display: block";
+    
   }
 
   startButton.addEventListener('click', function(){
     destroyStartscreen();
+    const music = document.getElementById("audio");
+    music.play();
     const game = new Game('myCanvas');
     game.init('myCanvas');
   })

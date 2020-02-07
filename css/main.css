@@ -21,7 +21,11 @@
     border: none;
     transition: all 0.4s ease 0s;
     margin-top: 20px;
+    left: 0px;
+    float: left;
+    margin-left: 40%;
   }
+
   #over-button { 
     color: #fff;
     text-transform: uppercase;
@@ -34,8 +38,10 @@
     border: none;
     transition: all 0.4s ease 0s;
     margin-top: 20px;
+    left: 0px;
+    float: left;
+    margin-left: 40%;
   }
-  
   
   #start-button:hover {
     letter-spacing: 3px;
@@ -45,30 +51,69 @@
   }
     
   #over-button:hover {
-      letter-spacing: 3px;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-      transition: all 0.4s ease 0s;
-      }
+    letter-spacing: 3px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+  }
   
-  .text {
+  .irongame {
     color: pink;
     font-size: 200px;
+    font-family: fantasy;
+    
+
   }
   
-  .text2 {
+  .runandrink {
     color: pink;
     font-size: 60px;
     margin-top: 15px;
+    float: left;
+    margin-left: 30%;
   }
-  .gameOver {
+
+  .gameover {
     color: pink;
-    font-size: 60px;
+    font-size: 200px;
+    float: left;
+    margin-left: 15%;
+    font-family: fantasy;
+
+  }
+  #score {
+    color: pink;
+    font-size: 50px;
     margin-top: 15px;
-    display: none
+    float: left;
+    margin-left: 40%;
     
-    /*aquí debería salir display hidden*/
   }
+
+  .p {
+    top: 10px;
+    position: relative;
+    left: 240px;
+  }
+
+  .instructions {
+    top: 50px;
+    position: relative;
+    left: 120px;
+  }
+
+  .pressS {
+    top: 100px;
+    position: relative;
+    left: -110px;
+  }
+
+  .pressP {
+    top: 150px;
+    position: absolute;
+    left: 140px;
+  }
+
   
   #myCanvas {
     position: absolute;
@@ -76,11 +121,19 @@
     top: 0;
   }
 
-  .pause {
+  #pause {
     background-color: pink;
     width: 600px;
     color: white;
     height: 200px;
     font-size: 30px;
     margin-top: 15px;
+    border-radius: 20px;
+    position: relative;
   }
+
+  .hidden{
+    display: none;
+  }
+
+
