@@ -1,10 +1,10 @@
 # Irongame
 
-In this game, you are an ironhacker who must collect a number of beers and avoid TA's.
+In this game, you are an ironhacker who must avoid TA's.
 
-The game screen is a road with beers as coins and TA's as enemies.
+The game screen is a road with  TA's as enemies.
 
-The player is represented by a person that runs ans jump along the road to win beers andavoid obstacles. The player uses space bar to jump.
+The player is represented by a person that runs ans jump along the road to avoid obstacles. The player uses space bar to jump.
 
 The game is over when a collition is detected between the player and an obstacle.
 
@@ -26,7 +26,6 @@ Html5 __Canvas__ and Vanilla __Javascript__
 
 
 ## Links
-[Irongame](https://trello.com/b/4aoqjWMk/irongame)
 [Github](https://giselaiff.github.io/Irongame/)
 [Slides](https://docs.google.com/presentation/d/1gpjxhZOQVrXoIh6x9tTp2Wfo5maXZyrJSJbR43r7KEI/edit#slide=id.p)
 [Trello](https://trello.com/b/4aoqjWMk/irongame)
