@@ -61,7 +61,6 @@
     color: pink;
     font-size: 200px;
     font-family: fantasy;
-    
 
   }
   
@@ -94,12 +93,16 @@
     top: 10px;
     position: relative;
     left: 240px;
+    font-family: fantasy;
+
   }
 
   .instructions {
     top: 50px;
     position: relative;
     left: 120px;
+    font-family: fantasy;
+
   }
 
   .pressS {
